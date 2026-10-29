@@ -5,6 +5,22 @@ on:
     branches: [master]
 
 jobs:
+  code-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+      - name: setup node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 12
+      - name: Install node.js dependencies
+        run: npm ci
+      - name: Run Linters
+        uses: wearerequired/lint-action@v2
+        with:
+          eslint: true
+          prettier: true
   build-and-push:
     runs-on: ubuntu-latest
     strategy:
