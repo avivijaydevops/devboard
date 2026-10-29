@@ -7,6 +7,8 @@ on:
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
+    strategy:
+            fail-fast: false
     steps:
       - name: Checkout code
         uses: actions/checkout@v7
