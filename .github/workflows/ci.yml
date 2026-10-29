@@ -15,6 +15,7 @@ jobs:
         with:
           node-version: 12
       - name: Install node.js dependencies
+        working-directory: frontend
         run: npm ci
       - name: Run Linters
         uses: wearerequired/lint-action@v2
