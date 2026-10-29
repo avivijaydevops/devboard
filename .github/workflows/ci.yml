@@ -13,15 +13,17 @@ jobs:
       - name: setup node.js
         uses: actions/setup-node@v7
         with:
-          node-version: 12
+          node-version: 20
+          cache: 'npm'
       - name: Install node.js dependencies
         working-directory: frontend
         run: npm ci
-      - name: Run Linters
-        uses: wearerequired/lint-action@v2
-        with:
-          eslint: true
-          prettier: true
+      - name: Install Linter
+        run: npm install eslint --save-dev
+
+      - name: Run ESLint
+        run: npm run lint
+        
   build-and-push:
     runs-on: ubuntu-latest
     strategy:
