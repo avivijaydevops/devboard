@@ -68,7 +68,7 @@ jobs:
 
           - name: Run Go Formatter
             run: go fmt
-            working-directory: backed
+            working-directory: backend
 
           - name: Run Go Vet
             run: go vet
